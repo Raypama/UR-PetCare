@@ -14,7 +14,7 @@ const Login = () => {
     email: "",
     password: "",
   });
-  const [isLoading, setIsLoading] = useState(false); // Pindahkan ke atas
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
@@ -38,6 +38,7 @@ const Login = () => {
       }, 2000);
       return;
     }
+
     if (!/\S+@\S+\.\S+/.test(form.email)) {
       toast.error(
         "Email format not valid (example@gmail.com/.co.id or other..)"
@@ -49,9 +50,9 @@ const Login = () => {
       return;
     }
 
-    setIsLoading(true);
-
+    
     try {
+      setIsLoading(true);
       const response = await API.post("/login", form);
       console.log(response);
 
@@ -67,11 +68,18 @@ const Login = () => {
         toast.success(response.data.massage);
         navigate("/");
       }
-    } catch (error) {
+    } catch (error : any) {
       console.log(error);
-      toast.error("Failed login, try again");
+      if (error.response && error.response.data.statusCode === 400) {
+        toast.error(error.response.data.massage);
+        
+        setTimeout(() => {
+          setIsLoading(false); // Reset loading setelah 2 detik
+        }, 2000);
+        return;
+      }
     } finally {
-      setIsLoading(false); // Reset isLoading di akhir
+      setIsLoading(true); // Reset isLoading di akhir
     }
   };
 

@@ -16,6 +16,7 @@ const Register = () => {
     address: "",
     photo: null,
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({
@@ -30,6 +31,23 @@ const Register = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isLoading) return; // Jika sudah loading, hentikan
+    setIsLoading(true);
+  
+    if (
+      !form.email.trim() ||
+      !form.password.trim() ||
+      !form.name.trim() ||
+      !form.address.trim() ||
+      !form.phone.trim()
+    ) {
+      toast.error("All input are required");
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+      return;
+    }
+  
     const checkEmail = async (email: string): Promise<boolean> => {
       try {
         const response = await API.get(`/check-email?email=${email}`);
@@ -39,38 +57,53 @@ const Register = () => {
         return false;
       }
     };
+  
     const getUsers = await API.get("/users");
-    const userPhones = getUsers.data.data.map(
-      (user: any) => user.phone && user.name
-    );
-    console.log(userPhones);
-
-    if (
-      !form.email.trim() ||
-      !form.password.trim() ||
-      !form.name.trim() ||
-      !form.address.trim() ||
-      !form.phone.trim()
-    ) {
-      toast.error("All input are required");
+    const userPhones = getUsers.data.data.map((user: any) => user.phone);
+    const userNames = getUsers.data.data.map((user: any) => user.name);
+  
+    const emailExists = await checkEmail(form.email);
+    if (!/\S+@\S+\.\S+/.test(form.email)) {
+      toast.error(
+        "Email format not valid (example@gmail.com/.co.id or other..)"
+      );
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+      if (emailExists) {
+        setTimeout(() => {
+          setIsLoading(false);
+          toast.error("Email already registered");
+        }, 2000);
+        return;
+      }
       return;
     }
-    const emailExists = await checkEmail(form.email);
+  
+    if (userNames.includes(form.name)) {
+      toast.error("Name already used");
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+      return;
+    }
+  
     if (emailExists) {
       toast.error("Email already registered");
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
       return;
     }
-
+  
     if (userPhones.includes(form.phone)) {
       toast.error("Phone number already used");
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
       return;
     }
-    
-    if (userPhones.includes(form.name)) {
-      toast.error("Name already used");
-      return;
-    }
-    
+  
     try {
       const uploadForm = new FormData();
       uploadForm.append("name", form.name);
@@ -82,14 +115,19 @@ const Register = () => {
         uploadForm.append("photo", form.photo);
       }
       const response = await API.post("/register", uploadForm);
-      //   console.log(uploadForm + 'uploadform');
       toast.success(response.data.message || "Registration successful");
       navigate("/login-pages");
     } catch (error) {
       console.log(error);
-      toast.error("failed login, try again");
+      toast.error("Failed to register, try again");
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false); // Reset isLoading di akhir
+      }, 2000);
     }
   };
+  
+  
   return (
     <MainTemplate pageTitle="Register Pages">
       <div className="h-auto mb-10 pt-44 flex flex-col items-center w-full ">
@@ -179,8 +217,15 @@ const Register = () => {
               />
             </div>
             <div className="flex justify-center shadow-lg font-medium my-3">
-              <button className="bg-slate-400 w-32 p-2 h-10 rounded text-sm font-semibold shadow-sm">
-                Register
+              <button
+                type="submit"
+                disabled={isLoading}
+                aria-disabled={isLoading} // Aksesibilitas tambahan
+                className={`bg-slate-400 w-32 p-2 h-10 rounded text-sm font-semibold shadow-sm ${
+                  isLoading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
+              >
+                {isLoading ? "Loading..." : "Register Now"}
               </button>
             </div>
           </form>
