@@ -28,11 +28,10 @@ const Service = () => {
     console.log(service);
     setService(response.data.data);
   };
-
   useEffect(() => {
     getService();
   }, []);
-
+  // getService();
   return (
     <MainTemplate pageTitle="Service Pages">
       <div className="h-auto px-4 font-sans mt-40">

@@ -57,29 +57,33 @@ const Login = () => {
       console.log(response);
 
       if (response.data.statusCode === 201) {
+        const user = response.data.data;
+
+        // Dispatch login action
         dispatch({
           type: "LOGIN",
           payload: {
-            user: response.data.data,
-            token: response.data.data.token,
+            user: user,
+            token: user.token,
           },
         });
 
         toast.success(response.data.massage);
-        navigate("/");
+
+        // Redirect berdasarkan role
+        if (user.role === "customer") {
+          navigate("/");
+        } else if (user.role === "karyawan") {
+          navigate("/admin/dashboard");
+        }
       }
-    } catch (error : any) {
+    } catch (error: any) {
       console.log(error);
       if (error.response && error.response.data.statusCode === 400) {
         toast.error(error.response.data.massage);
-        
-        setTimeout(() => {
-          setIsLoading(false); // Reset loading setelah 2 detik
-        }, 2000);
-        return;
       }
     } finally {
-      setIsLoading(true); // Reset isLoading di akhir
+      setIsLoading(false); // Reset loading di akhir
     }
   };
 

@@ -16,7 +16,7 @@ const DropdownLogin = () => {
   return (
     <MegaMenu
       className={
-        isLogin ? "text-slate-900" : " p-0 sm:px-0 px-0  text-gray-900 "
+        isLogin ? "text-slate-900  bg-transparent" : " p-0 sm:px-0 px-0  bg-transparent text-gray-900 "
       }
     >
       <MegaMenu.Dropdown
@@ -29,8 +29,8 @@ const DropdownLogin = () => {
             <span
               className={
                 isLogin
-                  ? " bg-slate-400 rounded"
-                  : "dark:text-white hover:underline hover:text-red-500 transition-all duration-250"
+                  ? " bg-slate-100 rounded"
+                  : "dark:text-white hover:underline  bg-slate-100 hover:text-red-500 transition-all duration-250"
               }
             >
               {isLogin ? "" : "Login/Register"}

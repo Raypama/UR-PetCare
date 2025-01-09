@@ -2,33 +2,20 @@ import { Carousel } from "flowbite-react"
 
 function CarouselImg() {
     return (
-        <div className="h-56 sm:h-64 xl:h-80  relative 2xl:h-96">
-            <Carousel slideInterval={900}>
+        <div className="h-96 bg-transparent relative 2xl:h-96">
+            <Carousel slideInterval={900} >
                 <img
-                    src="/src/assets/banner-1.png"
+                    src="/src/assets/bannerpetcare1.png"
                     alt="..."
-                    className="absolute object-cover w-full h-full"
+                    className="absolute object-contain bg-emerald-800 w-full h-96"
                 />
                 <img
-                    src="/src/assets/banner-2.png"
+                    src="/src/assets/bannerpetcare2.png"
                     alt="..."
-                    className="absolute object-cover w-full h-full"
+                    className="absolute object-contain bg-emerald-800 w-full h-96"
                 />
-                <img
-                    src="/src/assets/banner-3.png"
-                    alt="..."
-                    className="absolute object-cover w-full h-full"
-                />
-                <img
-                    src="/src/assets/banner-4.png"
-                    alt="..."
-                    className="absolute object-cover w-full h-full"
-                />
-                <img
-                    src="/src/assets/banner-5.png"
-                    alt="..."
-                    className="absolute object-cover w-full h-full"
-                />
+               
+               
             </Carousel>
         </div>
     )

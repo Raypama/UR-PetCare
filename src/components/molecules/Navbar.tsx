@@ -25,7 +25,7 @@ function Navbar() {
 
   return (
     <nav className="dark:bg-gray-700">
-      <div className="w-full px-4 py-3 mx-auto">
+      <div className="w-full px-4 py-1 mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo dan Hamburger */}
           <div>
@@ -60,22 +60,22 @@ function Navbar() {
               <li>
                 <NavLink
                   to="/"
-                  className="text-gray-900 dark:text-white hover:underline hover:text-red-500 transition-all duration-250"
+                  className="text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250"
                 >
                   Home
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
-                  to="/new-arrival"
+                  to="/contact"
                   className="text-gray-900 dark:text-white hover:underline hover:text-red-500 transition-all duration-250"
                 >
                   New Arrival
                 </NavLink>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Dropdown />
-              </li>
+              </li> */}
               <li>
                 <Dropdown2 />
               </li>
@@ -84,34 +84,34 @@ function Navbar() {
                   <li>
                     <NavLink
                       to="/division"
-                      className="text-gray-900 dark:text-white hover:underline hover:text-red-500 transition-all duration-250"
+                      className="text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250"
                     >
                       Sale
                     </NavLink>
                   </li>
 
-                  <li>
+                  {/* <li>
                     <NavLink
-                      to="/todo-app"
-                      className="text-gray-900 dark:text-white hover:underline hover:text-red-500 transition-all duration-250"
+                      to="/admin/todo-app"
+                      className="text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250"
                     >
                       Todo App
                     </NavLink>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <NavLink
                       to="/users"
-                      className="text-gray-900 dark:text-white hover:underline hover:text-red-500 transition-all duration-250"
+                      className="text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250"
                     >
                       Users
                     </NavLink>
-                  </li>
+                  </li> */}
                   <li>
                     <NavLink
                       to="/service"
-                      className="text-gray-900 dark:text-white hover:underline hover:text-red-500 transition-all duration-250"
+                      className="text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250"
                     >
-                      Service
+                      Our-Service
                     </NavLink>
                   </li>
                   
@@ -122,7 +122,7 @@ function Navbar() {
 
           {/* Search & User Menu */}
           <div className="hidden lg:flex items-center gap-x-4  mx-4">
-            <Search type="" placeholder="Search Here" />
+            <Search type="string" placeholder="Search Here"  />
             <Link to="/cart">
               <svg
                 width="25px"
@@ -165,21 +165,21 @@ function Navbar() {
           <li>
             <NavLink
               to="/"
-              className="text-gray-200 hover:text-red-500 transition-all"
+              className="text-gray-200 hover:text-emerald-400 transition-all"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
-              to="/new-arrival"
-              className="text-gray-200 hover:text-red-500 transition-all"
+              to="/contact"
+              className="text-gray-200 hover:text-emerald-400 transition-all"
               onClick={() => setIsMenuOpen(false)}
             >
               New Arrival
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <Dropdown />
           </li>
@@ -189,16 +189,16 @@ function Navbar() {
           <li>
             <NavLink
               to="/division"
-              className="text-gray-200 hover:text-red-500 transition-all"
+              className="text-gray-200 hover:text-emerald-400 transition-all"
               onClick={() => setIsMenuOpen(false)}
             >
               Sale
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to="/todo-app"
-              className="text-gray-200 hover:text-red-500 transition-all"
+              className="text-gray-200 hover:text-emerald-400 transition-all"
               onClick={() => setIsMenuOpen(false)}
             >
               Todo App
@@ -207,18 +207,18 @@ function Navbar() {
           <li>
             <NavLink
               to="/users"
-              className="text-gray-200 hover:text-red-500 transition-all"
+              className="text-gray-200 hover:text-emerald-400 transition-all"
               onClick={() => setIsMenuOpen(false)}
             >
               Users-list
             </NavLink>
-          </li>
+          </li> */}
           <li>
             <NavLink
               to="/service"
-              className="text-gray-900 dark:text-white hover:underline hover:text-red-500 transition-all duration-250"
+              className="text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250"
             >
-              Service
+              Our-Service
             </NavLink>
           </li>
         </ul>

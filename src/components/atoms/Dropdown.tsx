@@ -6,8 +6,8 @@ import { NavLink } from "react-router-dom";
 // }
 const Dropdown = () => {
   return (
-    <MegaMenu className="bg-transparent p-0 sm:px-0 px-0  text-gray-900 dark:text-white hover:underline hover:text-red-500 transition-all duration-250">
-      <MegaMenu.Dropdown toggle={<>Brands</>}>
+    <MegaMenu className="bg-transparent p-0 sm:px-0 px-0  text-gray-800 dark:text-white hover:underline hover:text-emerald-400   transition-all duration-250">
+      <MegaMenu.Dropdown toggle={<><span className="text-ellipsis">(products)</span></>} >
         <div className="grid lg:grid-cols-4 md:grid-cols-1 mx-auto h-52 md:h-auto md:mb-5 gap-2 text-center px-3 mt-7">
 
           <div className="space-y-4 hover:text-orange-700 duration-200 ">
