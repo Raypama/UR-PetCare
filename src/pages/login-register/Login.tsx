@@ -109,7 +109,7 @@ const Login = () => {
               <label htmlFor="" className="block   ">
                 Password
               </label>
-              <input
+              <input  
                 type="password"
                 name="password"
                 className="w-80 px-2 py-1 text-sm bg-gray-200 shadow-sm rounded"

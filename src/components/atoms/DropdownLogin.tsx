@@ -15,22 +15,25 @@ const DropdownLogin = () => {
   };
   return (
     <MegaMenu
-      className={
-        isLogin ? "text-slate-900  bg-transparent" : " p-0 sm:px-0 px-0  bg-transparent text-gray-900 "
-      }
+      className={`
+        ${
+          isLogin
+            ? "text-slate-900  bg-transparent"
+            : " p-0 sm:px-0 px-0  bg-transparent text-gray-900 "
+        } `}
     >
       <MegaMenu.Dropdown
         toggle={
           <>
             {isLogin ? "Hi!!" : " "}{" "}
-            <span className="block mx-2 font-bold text-green-700">
+            <span className="block mx-2 font-bold text-emerald-500">
               {user?.name}
             </span>{" "}
             <span
               className={
                 isLogin
                   ? " bg-slate-100 rounded"
-                  : "dark:text-white hover:underline  bg-slate-100 hover:text-red-500 transition-all duration-250"
+                  : "dark:text-white hover:underline  hover:text-emerald-500 transition-all duration-250"
               }
             >
               {isLogin ? "" : "Login/Register"}
@@ -39,17 +42,17 @@ const DropdownLogin = () => {
         }
       >
         <div className="p-4 w-80 ">
-          <div className="space-y-4 hover:text-orange-700 duration-200 ">
+          <div className="space-y-4  duration-200 ">
             <NavLink
               to="/register"
               className={
                 ({ isActive }) =>
                   isActive
-                    ? "text-xs md:text-base text-orange-700  over:text-primary-600 dark:hover:text-primary-500 font-semibold underline" // Untuk link aktif
-                    : "text-xs md:text-base hover:text-orange-700 over:text-primary-600 dark:hover:text-primary-500 font-semibold underline" // Untuk link tidak aktif
+                    ? "text-xs md:text-base   hover:text-emerald-500 dark:hover:text-primary-500 font-semibold underline" // Untuk link aktif
+                    : "text-xs md:text-base hover:text-emerald-500 over:text-primary-600 dark:hover:text-primary-500 font-semibold underline" // Untuk link tidak aktif
               }
             >
-              {isLogin? '' : 'Register'}
+              {isLogin ? "" : "Register"}
             </NavLink>
           </div>
           <div className="space-y-4 hover:text-orange-700 duration-200 ">

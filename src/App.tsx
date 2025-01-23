@@ -16,6 +16,7 @@ import Register from "./pages/login-register/Register";
 import ServiceAdmin from "./pages/admins/ControllerService";
 import AdminRoute from "./components/AdminRoute";
 import Dashboard from "./pages/admins/Dashboard";
+import DailyReport from "./pages/DailyReport";
 
 function App() {
   const { verifyToken } = useVerifyToken();
@@ -28,6 +29,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login-pages" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/daily" element={<DailyReport />} />
         <Route element={<PrivateRoute />}>
           {/* semua yg ada didalam sini yg di maksud outlet yang berarti harus login dlu */}
           <Route path="/about" element={<About />} />
