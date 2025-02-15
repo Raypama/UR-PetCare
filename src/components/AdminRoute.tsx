@@ -1,9 +1,9 @@
 // import React from 'react'
 
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
-import { useEffect, useState } from "react";
-import API from "../utils/api";
+// import { useAuth } from "../context/AuthContext";
+// import { useEffect, useState } from "react";
+// import API from "../utils/api";
 
 interface User {
   role: string

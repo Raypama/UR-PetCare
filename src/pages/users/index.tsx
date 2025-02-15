@@ -6,15 +6,15 @@ import { useEffect, useState } from "react";
 import API from "../../utils/api";
 import MainTemplateSeller from "../../components/templates/MainTemplateSeller";
 
-interface UserProps {
-  id: number;
-  name: string;
-  email: string;
-  address: string;
-  photo: string;
-  phone: string;
-  role: string;
-}
+  interface UserProps {
+    id: number;
+    name: string;
+    email: string;
+    address: string;
+    photo: string;
+    phone: string;
+    role: string;
+  }
 
 function User() {
   const [users, setUsers] = useState<UserProps[] | null>(null);

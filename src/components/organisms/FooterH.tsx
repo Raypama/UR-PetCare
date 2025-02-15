@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+
+
 const FooterH = () => {
   const newDate = new Date().getFullYear();
   return (
@@ -32,7 +34,7 @@ const FooterH = () => {
                   to={"/"}
                   className="mb-6 text-xs  font-semibold text-gray-900 uppercase dark:text-white"
                 >
-                  © {newDate} PT. NEO CIPTA REVOLUSI
+                  © {newDate} R41.Dev
                 </Link>
               </div>
             </div>
@@ -64,21 +66,16 @@ const FooterH = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-1">
-                  <Link to="#" className="hover:underline">
+                  <Link to="/about" className="hover:underline">
                     Blog & News
                   </Link>
                 </li>
                 <li className="mb-1">
-                  <Link to="#" className="hover:underline">
-                    How To Buy
+                  <Link to="/faq"  className="hover:underline">
+                    FAQ
                   </Link>
                 </li>
 
-                <li className="mb-1">
-                  <Link to="#" className="hover:underline">
-                    Testimonial
-                  </Link>
-                </li>
                 
               </ul>
             </div>
@@ -87,22 +84,12 @@ const FooterH = () => {
                 Other
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                <li className="mb-1">
+                  <p> Operasional:</p>
+                  <p> 09:00 AM - 08.00 PM</p>
+                </li>
+               
                 
-                <li className="mb-1">
-                  <Link to="#" className="hover:underline">
-                    Check Order
-                  </Link>
-                </li>
-                <li className="mb-1">
-                  <Link to="#" className="hover:underline">
-                    Terms and Condition
-                  </Link>
-                </li>
-                <li className="mb-1">
-                  <Link to="#" className="hover:underline">
-                    Payment Confirmation
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>

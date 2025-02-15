@@ -17,6 +17,11 @@ import ServiceAdmin from "./pages/admins/ControllerService";
 import AdminRoute from "./components/AdminRoute";
 import Dashboard from "./pages/admins/Dashboard";
 import DailyReport from "./pages/DailyReport";
+import UpdateUser from "./pages/login-register/UpdateUser";
+import Booking from "./pages/booking/Booking";
+import MyProfile from "./pages/profile-page/MyProfile";
+import BookingById from "./pages/booking/BookingById";
+import FAQ from "./pages/category/FAQ";
 
 function App() {
   const { verifyToken } = useVerifyToken();
@@ -30,8 +35,16 @@ function App() {
         <Route path="/login-pages" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/daily" element={<DailyReport />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/faq" element={<FAQ />} />
+
+        
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/booking/:id" element={<BookingById />} />
         <Route element={<PrivateRoute />}>
           {/* semua yg ada didalam sini yg di maksud outlet yang berarti harus login dlu */}
+          <Route path="/my-profile" element={<MyProfile />} />
+          <Route path="/update" element={<UpdateUser />} />
           <Route path="/about" element={<About />} />
           <Route path="/priceList" element={<PriceList />} />
           <Route path="/customer-service" element={<CustomerService />} />

@@ -9,7 +9,7 @@ import API from "../../utils/api";
 
 const Register = () => {
   const [form, setForm] = useState({
-    // name: "",
+    name: "",
     email: "",
     password: "",
     // phone: "",
@@ -33,11 +33,12 @@ const Register = () => {
     e.preventDefault();
     if (isLoading) return; // Jika sudah loading, hentikan
     setIsLoading(true);
-  
+    
+
     if (
       !form.email.trim() ||
-      !form.password.trim() 
-      // !form.name.trim() ||
+      !form.password.trim() ||
+      !form.name.trim() 
       // !form.address.trim() ||
       // !form.phone.trim()
     ) {
@@ -59,7 +60,7 @@ const Register = () => {
     };
   
     // const getUsers = await API.get("/users");
-    // const userPhones = getUsers.data.data.map((user: any) => user.phone);
+    // // const userPhones = getUsers.data.data.map((user: any) => user.phone);
     // const userNames = getUsers.data.data.map((user: any) => user.name);
   
     const emailExists = await checkEmail(form.email);
@@ -103,10 +104,16 @@ const Register = () => {
     //   }, 2000);
     //   return;
     // }
-  
+    // if (!isChecked) {
+    //   toast.warning("You must agree to the terms and conditions!");
+    //   setTimeout(() => {
+    //     setIsLoading(false);
+    //   }, 2000); // Reset loading jika gagal
+    //   return;
+    // }
     try {
       const uploadForm = new FormData();
-      // uploadForm.append("name", form.name);
+      uploadForm.append("name", form.name);
       uploadForm.append("email", form.email);
       uploadForm.append("password", form.password);
       // uploadForm.append("address", form.address);
@@ -130,7 +137,7 @@ const Register = () => {
   
   return (
     <MainTemplate pageTitle="Register Pages">
-      <div className="h-auto mb-10 pt-36 flex flex-col items-center w-full ">
+      <div className="h-screen mb-10 pt-10 flex flex-col items-center w-full ">
         <div>
           <h1 className="text-2xl font-bold  mb-6">Register Pages</h1>
         </div>
@@ -139,7 +146,7 @@ const Register = () => {
             className="  flex flex-col items-center"
             onSubmit={handleSubmit}
           >
-            {/* <div className=" my-2 rounded text-lg font-medium">
+            <div className=" my-2 rounded text-lg font-medium">
               <label htmlFor="" className="block">
                 Name
               </label>
@@ -151,7 +158,7 @@ const Register = () => {
                 placeholder="input your username here"
                 onChange={handleChange}
               />
-            </div> */}
+            </div>
             <div className=" my-2 rounded text-lg font-medium">
               <label htmlFor="" className="block">
                 Email
@@ -178,44 +185,20 @@ const Register = () => {
                 onChange={handleChange}
               />
             </div>
-            {/* <div className=" my-2 rounded text-lg font-medium">
-              <label htmlFor="" className="block   ">
-                Phone Number
-              </label>
+            {/* Checkbox untuk menyetujui */}
+            {/* <div className="my-4 flex items-center">
               <input
-                type="text"
-                name="phone"
-                value={form.phone}
-                className="w-80 px-2 py-1 text-sm bg-gray-200 shadow-sm rounded"
-                placeholder="input phone number"
-                onChange={handleChange}
+                type="checkbox"
+                id="terms"
+                // checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
+                className="w-4 h-4 mr-2"
               />
-            </div> */}
-            {/* <div className=" my-2 rounded text-lg font-medium">
-              <label htmlFor="" className="block   ">
-                Address
+              <label htmlFor="terms" className="text-sm font-medium">
+                I agree to the terms and conditions
               </label>
-              <input
-                type="text"
-                name="address"
-                value={form.address}
-                className="w-80 px-2 py-1 text-sm bg-gray-200 shadow-sm rounded"
-                placeholder="where do u live?"
-                onChange={handleChange}
-              />
             </div> */}
-            {/* <div className=" my-2 rounded text-lg font-medium">
-              <label htmlFor="" className="block   ">
-                Photo
-              </label>
-              <input
-                type="file"
-                name="photo"
-                className="w-80 px-2 py-1 text-sm bg-gray-200 shadow-sm rounded"
-                placeholder="uploads your profile here"
-                onChange={handleChange}
-              />
-            </div> */}
+      
             <div className="flex justify-center shadow-lg font-medium my-3">
               <button
                 type="submit"

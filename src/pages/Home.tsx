@@ -12,7 +12,7 @@ const Home = () => {
     <MainTemplate
       pageTitle="Ur PetCare's"
     >
-      <div className="mt-32">
+      <div >
         <CarouselImg />
       </div>
       {/* section 1 */}

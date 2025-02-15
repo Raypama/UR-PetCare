@@ -25,28 +25,27 @@ const Service = () => {
       },
     };
     const response = await API.get("/service", config);
-    console.log(service);
+    // console.log(service);
     setService(response.data.data);
   };
   useEffect(() => {
     getService();
   }, []);
-  // getService();
   return (
     <MainTemplate pageTitle="Service Pages">
-      <div className="h-auto px-4 font-sans mt-40">
+      <div className="h-auto px-4 font-sans ">
         <div className="mb-10">
           <div className="font-extrabold w-full mb-5 text-2xl text-center motion-preset-focus motion-duration-1500">
-            <h1>My Hoops Points Service</h1>
+            <h1>Our Service</h1>
           </div>
           <div className="grid grid-cols-3 gap-5">
             {service?.map((item) => (
               <div
                 key={item.id}
-                className="shadow-md border bg-slate-100 rounded font-sans  p-2 h-48 motion-scale-in-[0.5] motion-translate-x-in-[-25%] motion-translate-y-in-[25%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[1.00s] motion-duration-[1.50s]/scale motion-duration-[1.50s]/translate motion-duration-[1.80s]/rotate"
+                className="shadow-md border bg-slate-100  font-sans  p-2 min-h-48 motion-scale-in-[0.5] motion-translate-x-in-[-25%] motion-translate-y-in-[25%] motion-opacity-in-[0%] motion-rotate-in-[-10deg] motion-blur-in-[5px] motion-duration-[1.00s] motion-duration-[1.50s]/scale motion-duration-[1.50s]/translate motion-duration-[1.80s]/rotate"
               >
                 <Link
-                  to={"##"}
+                  to={`/booking/${item.id}`}
                   className="flex flex-col justify-center h-full px-5"
                 >
                   <h1 className="mb-1 text-lg font-semibold">
@@ -62,7 +61,7 @@ const Service = () => {
                       Idr. {numeral(item.price).format("0,0")}
                     </span>{" "}
                   </p>
-                  <button className="text-center shadow-md h-10 rounded mb-2 bg-green-300 hover:motion-preset-oscillate motion-duration-1500">
+                  <button className="text-center w-full shadow-md min-h-10 rounded mb-2 bg-green-300  motion-duration-1500">
                     add to Chart
                   </button>
                 </Link>

@@ -9,7 +9,9 @@ export default {
     flowbite.content()
   ],
   theme: {
-    extend: {},
+    extend: {
+      scrollBehavior: ['smooth'],
+    },
   },
   plugins: [
     flowbite, // Plugin Flowbite

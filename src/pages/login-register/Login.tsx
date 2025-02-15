@@ -89,7 +89,7 @@ const Login = () => {
 
   return (
     <MainTemplate pageTitle="login-pages">
-      <div className="h-screen pt-44 flex flex-col items-center w-full ">
+      <div className="h-screen pt-10 flex flex-col items-center w-full ">
         <h1 className="text-2xl font-bold  mb-6">Login Pages</h1>
         <div className=" h-auto w-96 border rounded shadow-md mb-5 p-2">
           <form className="  flex flex-col items-center" onSubmit={handleLogin}>
