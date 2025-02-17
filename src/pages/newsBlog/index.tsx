@@ -11,7 +11,7 @@ interface NewsArticle {
   thumbnail: string;
 }
 
-export default function About() {
+export default function News() {
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

@@ -99,7 +99,7 @@ function Navbar() {
                 )}
                 <li>
                   <NavLink
-                    to="/about"
+                    to="/news&blog"
                     className={({ isActive }) =>
                       `text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250 ${
                         isActive ? "font-bold text-emerald-500" : ""
@@ -185,7 +185,7 @@ function Navbar() {
           )}
           <li>
             <NavLink
-              to="/About"
+              to="/news&blog"
               className={({ isActive }) =>
                 `text-gray-200 hover:text-emerald-400 transition-all ${
                   isActive ? "font-bold text-emerald-500" : ""

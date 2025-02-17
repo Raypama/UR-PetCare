@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/about";
+import About from "./pages/newsBlog";
 import Contact from "./pages/contact";
 import PriceList from "./pages/priceList";
 import CustomerService from "./pages/customerService";
@@ -22,6 +22,7 @@ import Booking from "./pages/booking/Booking";
 import MyProfile from "./pages/profile-page/MyProfile";
 import BookingById from "./pages/booking/BookingById";
 import FAQ from "./pages/category/FAQ";
+import News from "./pages/newsBlog";
 
 function App() {
   const { verifyToken } = useVerifyToken();
@@ -35,7 +36,7 @@ function App() {
         <Route path="/login-pages" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/daily" element={<DailyReport />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/news&blog" element={<News />} />
         <Route path="/faq" element={<FAQ />} />
 
         
