@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import MainTemplate from "../../components/templates/MainTemplate";
 import API from "../../utils/api";
 import ServiceCard from "../../components/molecules/ServiceCard";
@@ -22,18 +22,26 @@ const BookingById = () => {
 
   useEffect(() => {
     const getService = async () => {
-      const token = localStorage.getItem("token");
-      const config = {
-        method: "GET",
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      };
-      const response = await API.get(`/service/${id}`, config);
-      setService(response.data.users);
+      try {
+        const token = localStorage.getItem("token");
+        const config = {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        };
+        const response = await API.get(`/service/${id}`, config);
+        
+        setService(response.data.users);
+        setSelectedServiceId(response.data.users?.id || null); // Set selectedServiceId otomatis
+      } catch (error) {
+        console.error("Error fetching service:", error);
+      }
     };
+  
     getService();
   }, [id]);
+  
 
   const today = new Date();
   const [selectedDate, setSelectedDate] = useState(today);
@@ -71,32 +79,56 @@ const BookingById = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+  
     if (!selectedTime) {
       alert("Silakan pilih waktu!");
       return;
     }
+  
+    if (!selectedServiceId) {
+      alert("silahkan login terlebih dahulu,");
+      navigate("/login-pages")
+      return;
+    }
+  
     if (!isLogin) {
       alert("Silakan login terlebih dahulu");
       return;
     }
-    const book = {
-      serviceId: id,
-      date: selectedDate.toISOString().split("T")[0],
-      time: selectedTime,
-      quantity: 1,
-    };
-    const response = await API.post("/booking", book);
-    navigate("/my-profile");
+  
+    try {
+      const book = {
+        serviceId: selectedServiceId,  // Pastikan service yang dipilih dikirim
+        date: selectedDate.toISOString().split("T")[0],
+        time: selectedTime,
+        quantity: 1,
+      };
+  
+      const response = await API.post("/booking", book);
+  
+      if (response.status === 201 || response.status === 200) {
+        alert("Booking berhasil!");
+        navigate("/my-profile");
+      } else {
+        alert("Booking gagal. Silakan coba lagi.");
+      }
+    } catch (error) {
+      console.error("Error saat booking:", error);
+      alert("Terjadi kesalahan saat booking. Coba lagi nanti.");
+    }
   };
+  
+  
 
   return (
     <MainTemplate pageTitle="Booking Page">
-      <div>
-        <div className="font-bold w-full px-10 text-xl text-start">
+      <div className="px-4 sm:px-8 lg:px-10">
+        <div className="font-bold w-full text-lg sm:text-xl text-start">
           <h1>Service Selected:</h1>
         </div>
-        <div className="flex flex-row-reverse">
-          <div className="border-l-2 border-gray-100 dark:border-gray-700 h-screen p-4 w-1/2">
+        <div className="flex flex-col lg:flex-row-reverse gap-5">
+          {/* Sidebar Booking */}
+          <div className="border-l-2 border-gray-100 dark:border-gray-700 p-4 w-full lg:w-1/2">
             <div className="w-full mb-2">
               <label className="text-sm font-medium text-gray-900 dark:text-white mb-2 block">
                 Booking Date
@@ -108,12 +140,12 @@ const BookingById = () => {
                 weekStart={1}
               />
             </div>
-
+  
             <div className="w-full">
               <label className="text-sm font-medium text-gray-900 dark:text-white mb-2 block">
                 Select Time:
               </label>
-              <ul className="grid w-full grid-cols-3 mb-5 overflow-y-auto max-h-64 border p-2 rounded-lg">
+              <ul className="grid w-full grid-cols-2 sm:grid-cols-3 mb-5 overflow-y-auto max-h-64 border p-2 rounded-lg">
                 {filteredTimeSlots.map((time, index) => (
                   <li key={index}>
                     <input
@@ -125,7 +157,7 @@ const BookingById = () => {
                     />
                     <label
                       htmlFor={`time-${index}`}
-                      className={`inline-flex items-center justify-center w-full px-2 py-1 text-sm font-medium text-center cursor-pointer border rounded-lg 
+                      className={`inline-flex items-center justify-center w-full px-3 py-2 text-sm font-medium text-center cursor-pointer border rounded-lg 
                         ${
                           selectedTime === time
                             ? "border-blue-700 bg-blue-50 text-blue-700"
@@ -140,7 +172,7 @@ const BookingById = () => {
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={handleSubmit}
-                  className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5"
+                  className="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2"
                 >
                   Book Now!!
                 </button>
@@ -149,15 +181,17 @@ const BookingById = () => {
                     setSelectedDate(today);
                     setSelectedTime(null);
                   }}
-                  className="py-2.5 px-5 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700"
+                  className="py-2 px-4 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700"
                 >
                   Discard
                 </button>
               </div>
             </div>
           </div>
-          <div className="pt-4 px-10 overflow-y-auto min-h-screen">
-            <div className="h-7">
+  
+          {/* Service Card */}
+          <div className="pt-4 px-4 sm:px-6 lg:px-10 overflow-y-auto min-h-screen">
+            <div className="h-auto">
               {service && (
                 <ServiceCard
                   key={service.id}
@@ -175,6 +209,7 @@ const BookingById = () => {
       </div>
     </MainTemplate>
   );
+  
 };
 
 export default BookingById;

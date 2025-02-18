@@ -5,7 +5,7 @@ import API from "../../utils/api";
 import { NavLink } from "react-router-dom";
 import unknownImage from "../../assets/unknown.jpeg";
 import numeral from "numeral";
-import Payment from "../../components/organisms/payment";
+import Payment from "../../components/organisms/Payment";
 
 interface UserProps {
   id: number;
@@ -86,55 +86,57 @@ const MyProfile = () => {
 
   return (
     <MainTemplate pageTitle="Profile & Booking">
-      <div className="flex min-h-screen bg-gray-100">
-        <aside className="w-1/4 bg-white p-6 shadow-lg">
+      <div className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
+        {/* Sidebar */}
+        <aside className="w-full lg:w-1/4 bg-white p-6 shadow-lg">
           {userData ? (
             <div className="text-center">
               <img
                 src={userData.photo ? userData.photo : unknownImage}
                 onError={(e) => (e.currentTarget.src = unknownImage)}
                 alt="Profile"
-                className="w-32 rounded-full mx-auto mb-4 border-2 border-gray-300"
+                className="w-24 sm:w-28 md:w-32 lg:w-36 rounded-full mx-auto mb-4 border-2 border-gray-300"
               />
-              <h2 className="text-lg font-semibold">{userData.name}</h2>
-              <p className="text-sm text-gray-600">{userData.email}</p>
-              <p className="text-sm text-gray-600">{userData.phone}</p>
-              <p className="text-sm text-gray-600">{userData.address}</p>
+              <h2 className="text-base sm:text-lg font-semibold">{userData.name}</h2>
+              <p className="text-xs sm:text-sm text-gray-600">{userData.email}</p>
+              <p className="text-xs sm:text-sm text-gray-600">{userData.phone}</p>
+              <p className="text-xs sm:text-sm text-gray-600">{userData.address}</p>
             </div>
           ) : (
             <p className="text-center text-gray-500">Loading profile...</p>
           )}
-          <NavLink to={"/update"} className={"flex justify-center"}>
-            <button className="bg-gray-400 w-32 p-2 h-10 rounded text-sm font-semibold shadow-sm mt-5 items-center">
+          <NavLink to={"/update"} className="flex justify-center">
+            <button className="bg-gray-400 w-28 sm:w-32 p-2 h-10 rounded text-xs sm:text-sm font-semibold shadow-sm mt-5">
               Update Users
             </button>
           </NavLink>
         </aside>
-
-        <main className="flex-1 py-2 px-6 pb-8">
-          <div className="mb-5 mt-3 items-center">
-            <h1 className="text-2xl font-bold">Your Bookings :</h1>
+  
+        {/* Main Content */}
+        <main className="flex-1 py-4 px-4 sm:px-6 lg:px-8 pb-8">
+          <div className="mb-5 mt-3">
+            <h1 className="text-xl sm:text-2xl font-bold">Your Bookings :</h1>
           </div>
-          <div className="bg-white p-4 mb-5 rounded-lg shadow-md">
+          <div className="bg-white p-4 sm:p-6 mb-5 rounded-lg shadow-md">
             {bookings.length > 0 ? (
               <ul>
                 {bookings.map((item) => (
                   <li
                     key={item.id}
-                    className="border-b flex justify-between py-3 last:border-none"
+                    className="border-b flex flex-col sm:flex-row justify-between py-3 last:border-none gap-2"
                   >
                     <div>
-                      <p className="font-semibold">{item.service?.name}</p>
-                      <p className="text-sm text-black-500">
+                      <p className="font-semibold text-sm sm:text-base">{item.service?.name}</p>
+                      <p className="text-xs sm:text-sm text-black-500">
                         <span>
-                          Date : {new Date(item.date).toLocaleDateString("id-ID", {
+                          Date: {new Date(item.date).toLocaleDateString("id-ID", {
                             day: "2-digit",
                             month: "long",
                             year: "numeric",
                           })}
                         </span>
                         <div
-                          className={`text-sm font-semibold h-7 w- py-1 rounded items-center flex justify-center ${
+                          className={`text-xs sm:text-sm font-semibold h-7 w-auto px-3 rounded flex items-center justify-center mt-2 sm:mt-0 ${
                             item.status === "complete"
                               ? "bg-green-200 text-green-800"
                               : "bg-yellow-200 text-yellow-800"
@@ -145,7 +147,7 @@ const MyProfile = () => {
                       </p>
                     </div>
                     <div>
-                      <span className="ml-4 font-bold">
+                      <span className="font-bold text-sm sm:text-base">
                         Rp. {numeral(item.totalPrice).format("0,0")}
                       </span>
                     </div>
@@ -153,14 +155,19 @@ const MyProfile = () => {
                 ))}
               </ul>
             ) : (
-              <p className="text-gray-500">No bookings found.</p>
+              <p className="text-gray-500 text-sm sm:text-base">No bookings found.</p>
             )}
           </div>
-          <div className="h-20 w-full flex-col place-items-end">
-            <p className="text-lg font-bold">
+  
+          {/* Total Charges & Payment Button */}
+          <div className="flex flex-col items-center sm:items-end">
+            <p className="text-base sm:text-lg font-bold">
               Total Charges: Rp. {numeral(totalAllBookings).format("0,0")}
             </p>
-            <button onClick={() => setIsPaymentOpen(true)} className="w-60 h-12 font-semibold bg-gray-400 hover:bg-gray-300 mt-2 hover:text-emerald-500 shadow-sm rounded">
+            <button
+              onClick={() => setIsPaymentOpen(true)}
+              className="w-full sm:w-60 h-10 sm:h-12 font-semibold bg-gray-400 hover:bg-gray-300 mt-2 hover:text-emerald-500 shadow-sm rounded"
+            >
               Pay Now
             </button>
             {isPaymentOpen && <Payment onClose={() => setIsPaymentOpen(false)} />}
@@ -169,6 +176,7 @@ const MyProfile = () => {
       </div>
     </MainTemplate>
   );
+  
 };
 
 export default MyProfile;
