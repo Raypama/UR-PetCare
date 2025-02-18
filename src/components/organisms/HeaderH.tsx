@@ -74,7 +74,7 @@ function HeaderH() {
               </Link>
             </div>
             <div>
-              <h1 className="text-blue-950 px-1 sm:px-3 md:px-4 font-semibold text-sm sm:text-xl md:text-2xl lg:text-3xl mt-4 font-sans uppercase italic">
+              <h1 className="text-blue-950 px-1 sm:px-3 md:px-4 font-semibold text-sm sm:text-lg md:text-xl lg:text-3xl mt-4 font-sans uppercase italic">
                 Ur.Pet<span className="text-emerald-400">Cares..</span>
               </h1>
               <Navbar />
