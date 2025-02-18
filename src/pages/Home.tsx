@@ -35,7 +35,7 @@ const Home = () => {
           </div>
           <div className="w-full md:w-2/4 flex justify-center mt-5 md:mt-0">
             <img
-              src="/src/assets/dogcats-Photoroom.png"
+              src="/assets/dogcats-Photoroom.png"
               className="w-3/4 sm:w-2/4 md:w-full max-h-80 object-contain"
               alt="petcare"
             />

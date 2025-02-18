@@ -13,7 +13,7 @@ const FooterH = () => {
               <div className="flex items-center justify-center md:justify-start">
                 <Link to={"/"} className="flex items-center space-x-3">
                   <img
-                    src="/src/assets/petlogo.png"
+                    src="/assets/petlogo.png"
                     className="h-10 w-auto"
                     alt="petcare Logo"
                   />

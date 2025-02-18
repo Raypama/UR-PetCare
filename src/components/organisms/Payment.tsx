@@ -1,5 +1,5 @@
 import React from "react";
-import Qr from "../../assets/QR.png";
+import Qr from "/assets/QR.png";
 
 
 interface PaymentProps {

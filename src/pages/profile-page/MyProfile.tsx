@@ -3,7 +3,7 @@ import MainTemplate from "../../components/templates/MainTemplate";
 import { useAuth } from "../../context/AuthContext";
 import API from "../../utils/api";
 import { NavLink } from "react-router-dom";
-import unknownImage from "../../assets/unknown.jpeg";
+import unknownImage from "/assets/unknown.jpeg";
 import numeral from "numeral";
 import Payment from "../../components/organisms/Payment";
 

@@ -1,6 +1,6 @@
 import numeral from "numeral";
 import { Link, useLocation } from "react-router-dom";
-import dogCatSans from "../../assets/dogcatsans.jpg";
+import dogCatSans from "/assets/dogcatsans.jpg";
 
 interface ServiceProps {
   id: number;

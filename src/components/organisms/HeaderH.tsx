@@ -4,7 +4,7 @@ import DropdownLogin from "../atoms/DropdownLogin";
 import { useEffect, useState } from "react";
 import API from "../../utils/api";
 import { useAuth } from "../../context/AuthContext";
-import unknownImage from "../../assets/unknown.jpeg";
+import unknownImage from "/assets/unknown.jpeg";
 
 interface UserProps {
   id: number;
@@ -67,7 +67,7 @@ function HeaderH() {
             <div>
               <Link to="/" className="flex pl-3 items-center mx-auto space-x-3">
                 <img
-                  src="/src/assets/petlogo.png"
+                  src="/assets/petlogo.png"
                   className="h-[40px] sm:h-[70px] md:h-[80px] object-cover  rounded-full"
                   alt="petcare Logo"
                 />
