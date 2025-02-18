@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from "axios";
 
 
 const API: AxiosInstance = axios.create({
-    baseURL: 'https://be-urpetcares-production.up.railway.app/',
+    baseURL: 'http://localhost:8000',
     // headers: {
     //     "Content-Type" : "application/json"
     // }
