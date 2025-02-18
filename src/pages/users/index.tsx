@@ -19,11 +19,7 @@ import MainTemplateSeller from "../../components/templates/MainTemplateSeller";
 function User() {
   const [users, setUsers] = useState<UserProps[] | null>(null);
 
-  // fetch('http://localhost:8000/users')
-  // .then(response => response.json())
-  // .then(json => setUsers(json.data)
-  // )
-  // console.log(users);
+  
 
   const getUser = async () => {
     const token = localStorage.getItem("token");
