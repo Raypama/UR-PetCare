@@ -8,7 +8,7 @@ function Search({placeholder,type}:SearchProps) {
     <div className="w-48 border-b-2 border-b-stone-400">
       <form >
         <div className="relative ">
-          <input type={type} id="default-search" className="block w-full border-b-black   text-base  dark:placeholder-gray-400 bg-transparent font-medium" placeholder={placeholder} required />
+          <input type={type} id="default-search" className="block w-full border-b-black   text-base   bg-transparent font-medium" placeholder={placeholder} required />
           
         </div>
       </form>

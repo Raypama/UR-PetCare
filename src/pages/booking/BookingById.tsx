@@ -128,9 +128,9 @@ const BookingById = () => {
         </div>
         <div className="flex flex-col lg:flex-row-reverse gap-5">
           {/* Sidebar Booking */}
-          <div className="border-l-2 border-gray-100 dark:border-gray-700 p-4 w-full lg:w-1/2">
+          <div className="border-l-2 border-gray-100  p-4 w-full lg:w-1/2">
             <div className="w-full mb-2">
-              <label className="text-sm font-medium text-gray-900 dark:text-white mb-2 block">
+              <label className="text-sm font-medium text-gray-900  mb-2 block">
                 Booking Date
               </label>
               <Datepicker
@@ -142,7 +142,7 @@ const BookingById = () => {
             </div>
   
             <div className="w-full">
-              <label className="text-sm font-medium text-gray-900 dark:text-white mb-2 block">
+              <label className="text-sm font-medium text-gray-900  mb-2 block">
                 Select Time:
               </label>
               <ul className="grid w-full grid-cols-2 sm:grid-cols-3 mb-5 overflow-y-auto max-h-64 border p-2 rounded-lg">
@@ -161,7 +161,7 @@ const BookingById = () => {
                         ${
                           selectedTime === time
                             ? "border-blue-700 bg-blue-50 text-blue-700"
-                            : "text-gray-500 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+                            : "text-gray-500 border-gray-200 hover:bg-gray-50 "
                         }`}
                     >
                       {time}

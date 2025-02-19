@@ -104,7 +104,7 @@ function HeaderH() {
                     </NavLink>
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-xs sm:text-sm md:text-base text-gray-500 dark:text-gray-400">
+                    <p className="truncate text-xs sm:text-sm md:text-base text-gray-500 ">
                       {users?.email}
                     </p>
                     <DropdownLogin />
@@ -123,7 +123,7 @@ function HeaderH() {
                     </NavLink>
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate hidden text-xs sm:text-sm md:text-base text-gray-500 dark:text-gray-400">
+                    <p className="truncate hidden text-xs sm:text-sm md:text-base text-gray-500 ">
                       {"No email available"}
                     </p>
                     <DropdownLogin />

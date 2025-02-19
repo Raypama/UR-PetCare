@@ -4,7 +4,7 @@ import DropdownLogin from "../atoms/DropdownLogin";
 
 const HeaderForSeller = () => {
   return (
-    <div className="bg-slate-50 border-gray-200 dark:bg-gray-900 h-auto  fixed top-0">
+    <div className="bg-slate-50 border-gray-200  h-auto  fixed top-0">
       <div  className="relative">
         <nav className=" w-screen flex">
           <div className="flex flex-wrap justify-between items-center   max-w-screen-xl ">

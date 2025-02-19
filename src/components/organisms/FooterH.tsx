@@ -6,7 +6,7 @@ const FooterH = () => {
   const newDate = new Date().getFullYear();
   return (
     <div>
-      <footer className="bg-gray-100 dark:bg-gray-700">
+      <footer className="bg-gray-100 ">
         <div className="mx-auto w-full max-w-screen-xl px-4 py-6 md:py-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <div className="text-center md:text-left">
@@ -22,16 +22,16 @@ const FooterH = () => {
                   </h1>
                 </Link>
               </div>
-              <p className="mt-2 text-xs md:text-sm text-gray-900 dark:text-white">
+              <p className="mt-2 text-xs md:text-sm text-gray-900 ">
                 © {newDate} R41.Dev
               </p>
             </div>
   
             <div className="text-center md:text-left">
-              <h2 className="mb-2 text-sm md:text-base font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-2 text-sm md:text-base font-semibold text-gray-900 uppercase ">
                 Connect with us
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium space-y-1">
+              <ul className="text-gray-500  font-medium space-y-1">
                 <li>
                   <Link to="#" className="hover:underline">
                     Facebook
@@ -51,10 +51,10 @@ const FooterH = () => {
             </div>
   
             <div className="text-center md:text-left">
-              <h2 className="mb-2 text-sm md:text-base font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-2 text-sm md:text-base font-semibold text-gray-900 uppercase ">
                 Help
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium space-y-1">
+              <ul className="text-gray-500  font-medium space-y-1">
                 <li>
                   <Link to="/about" className="hover:underline">
                     Blog & News
@@ -69,17 +69,17 @@ const FooterH = () => {
             </div>
   
             <div className="text-center md:text-left">
-              <h2 className="mb-2 text-sm md:text-base font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-2 text-sm md:text-base font-semibold text-gray-900 uppercase ">
                 Other
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 font-medium text-xs md:text-sm">
+              <p className="text-gray-500  font-medium text-xs md:text-sm">
                 Operasional: <br /> 09:00 AM - 08:00 PM
               </p>
             </div>
           </div>
   
           <div className="px-4 py-4   mt-6">
-            <p className="text-center text-sm md:text-base font-semibold text-gray-900 dark:text-white">
+            <p className="text-center text-sm md:text-base font-semibold text-gray-900 ">
               #petcares | groom | and.growth.ur.pets
             </p>
           </div>

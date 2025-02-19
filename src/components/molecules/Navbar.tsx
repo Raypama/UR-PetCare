@@ -27,14 +27,14 @@ function Navbar() {
   }, [isMenuOpen]);
 
   return (
-    <nav className="dark:bg-gray-700">
+    <nav className="">
       <div className="w-full px-4 py-1 mx-auto">
         <div className="flex items-center justify-between">
           {/* Logo dan Hamburger */}
           <div>
             <div className="flex items-center">
               <button
-                className="lg:hidden text-gray-900 dark:text-white focus:outline-none"
+                className="lg:hidden text-gray-900  focus:outline-none"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <svg
@@ -64,7 +64,7 @@ function Navbar() {
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    `text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250 ${
+                    `text-gray-900  hover:underline hover:text-emerald-400 transition-all duration-250 ${
                       isActive ? "font-bold text-emerald-500" : ""
                     }`
                   }                >
@@ -76,7 +76,7 @@ function Navbar() {
                   <NavLink
                     to="/booking"
                     className={({ isActive }) =>
-                      `text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250 ${
+                      `text-gray-900  hover:underline hover:text-emerald-400 transition-all duration-250 ${
                         isActive ? "font-bold text-emerald-500" : ""
                       }`
                     }                  >
@@ -89,7 +89,7 @@ function Navbar() {
                   <NavLink
                     to="/my-profile"
                     className={({ isActive }) =>
-                      `text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250 ${
+                      `text-gray-900  hover:underline hover:text-emerald-400 transition-all duration-250 ${
                         isActive ? "font-bold text-emerald-500" : ""
                       }`
                     }                  >
@@ -101,7 +101,7 @@ function Navbar() {
                   <NavLink
                     to="/news&blog"
                     className={({ isActive }) =>
-                      `text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250 ${
+                      `text-gray-900  hover:underline hover:text-emerald-400 transition-all duration-250 ${
                         isActive ? "font-bold text-emerald-500" : ""
                       }`
                     }                  >
@@ -112,7 +112,7 @@ function Navbar() {
                   <NavLink
                     to="/faq"
                     className={({ isActive }) =>
-                      `text-gray-900 dark:text-white hover:underline hover:text-emerald-400 transition-all duration-250 ${
+                      `text-gray-900  hover:underline hover:text-emerald-400 transition-all duration-250 ${
                         isActive ? "font-bold text-emerald-500" : ""
                       }`
                     }                  >

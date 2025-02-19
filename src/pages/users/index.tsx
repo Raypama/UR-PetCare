@@ -61,22 +61,22 @@ function User() {
                   alt="img user"
                   className="h-40 w-40 md:h-48 md:w-48 lg:h-56 lg:w-56 object-cover shadow-lg rounded-full mx-auto"
                 />
-                <h5 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-gray-900 dark:text-white  mt-3">
+                <h5 className="text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-gray-900   mt-3">
                   Name : {item.name}
                 </h5>
-                <p className="font-normal text-gray-700 dark:text-gray-400 ">
+                <p className="font-normal text-gray-700  ">
                   Id User : {item.id}
                 </p>
-                <p className="font-normal text-gray-700 dark:text-gray-400 ">
+                <p className="font-normal text-gray-700  ">
                   Address : {item.address}
                 </p>
-                <p className="font-normal text-gray-700 dark:text-gray-400 ">
+                <p className="font-normal text-gray-700  ">
                   Email : {item.email}
                 </p>
-                <p className="font-normal text-gray-700 dark:text-gray-400 ">
+                <p className="font-normal text-gray-700  ">
                   Phone Number : {item.phone}
                 </p>
-                <p className="font-normal text-gray-700 dark:text-gray-400 ">
+                <p className="font-normal text-gray-700  ">
                   Role : {item.role}
                 </p>
               </Card>

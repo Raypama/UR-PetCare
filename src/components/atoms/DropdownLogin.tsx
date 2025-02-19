@@ -32,20 +32,20 @@ const DropdownLogin = () => {
           className={`${
             isLogin
               ? "bg-slate-100 rounded"
-              : "dark:text-white hover:underline hover:text-emerald-500 transition-all ease-in-out duration-[700ms]"
+              : "hover:underline hover:text-emerald-500 transition-all ease-in-out duration-[700ms]"
           }`}
         >
           {isLogin ? "" : "Login/Register"}
         </span>{" "}
       </div>
-      <div className="absolute hidden group-hover:block bg-white dark:bg-gray-800 shadow-lg p-4 rounded w-40 sm:w-48 md:w-56">
+      <div className="absolute hidden group-hover:block bg-white shadow-lg p-4 rounded w-40 sm:w-48 md:w-56">
         <div className="space-y-3 sm:space-y-4 duration-200">
           <NavLink
             to="/register"
             className={({ isActive }) =>
               isActive
-                ? "text-xs sm:text-sm md:text-base text-emerald-500 dark:hover:text-primary-500 font-semibold underline"
-                : "text-xs sm:text-sm md:text-base hover:text-emerald-500 dark:hover:text-primary-500 font-semibold"
+                ? "text-xs sm:text-sm md:text-base text-emerald-500 font-semibold underline"
+                : "text-xs sm:text-sm md:text-base hover:text-emerald-500 font-semibold"
             }
           >
             {isLogin ? "" : "Register"}
@@ -56,8 +56,8 @@ const DropdownLogin = () => {
             to="/login-pages"
             className={({ isActive }) =>
               isActive
-                ? "text-xs sm:text-sm md:text-base text-emerald-500 hover:text-primary-600 dark:hover:text-primary-500 font-semibold underline"
-                : "text-xs sm:text-sm md:text-base hover:text-emerald-500 hover:text-primary-600 dark:hover:text-primary-500 font-semibold"
+                ? "text-xs sm:text-sm md:text-base text-emerald-500 hover:text-primary-600  font-semibold underline"
+                : "text-xs sm:text-sm md:text-base hover:text-emerald-500 hover:text-primary-600  font-semibold"
             }
           >
             {isLogin ? (
